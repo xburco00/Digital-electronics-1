@@ -5,4 +5,15 @@
 
 **Digitální elektronika 1**
 
-Příručku Sylabus předmětu si přečtěte jako první. Dozvíte se v ní všechny potřebné informace týkající se obsahu a organizace kurzu, podmínek absolvování apod.
+Cílem předmětu je seznámit studenty se základy digitálních obvodů a naučit je praktickým postupům návrhu obvodových zapojení kombinačních, asynchronních a synchronních číslicových systémů s využitím jazyka VHDL.
+
+[link](https://www.vutbr.cz/studis/student.phtml?gm=gm_detail_predmetu&apid=224131)
+
+
+
+
+
+
+
+
+
