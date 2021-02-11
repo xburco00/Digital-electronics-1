@@ -1,12 +1,12 @@
 # Digital-electronics-1
 
-#Lab 01-gates
+# Lab 01-gates
 
 https://github.com/xburco00/Digital-electronics-1
 
-##De Morgan's laws of function f(c,b,a) simulation
+## De Morgan's laws of function f(c,b,a) simulation
 
-###VHDL code design.vhd
+### VHDL code design.vhd
 ```vhdl
 library ieee;               
 use ieee.std_logic_1164.all;
@@ -31,13 +31,13 @@ begin
 end architecture dataflow;
 ```
 
-###Graph
+### Graph
 ![Screenshot with simulated time waveforms](Images/screenshot1.png)
 
-###EDA playground link
+### EDA playground link
 https://www.edaplayground.com/x/WEEz
 
-###Table
+### Table
 | c | b | a |f(c,b,a)|
 |:-:|:-:|:-:|   :-:  |
 | 0 | 0 | 0 |    1   |
@@ -50,9 +50,9 @@ https://www.edaplayground.com/x/WEEz
 | 1 | 1 | 1 |    0   |
 
 
-##Verification of Distributive laws
+## Verification of Distributive laws
 
-#VHDL code design.vhd
+### VHDL code design.vhd
 ```vhdl
 library ieee;               
 use ieee.std_logic_1164.all;
@@ -79,8 +79,8 @@ begin
 end architecture dataflow;
 ```
 
-###Graph
+### Graph
 ![Screenshot with simulated time waveforms](Images/screenshot2.png)
 
-###EDA playground link
+### EDA playground link
 https://www.edaplayground.com/x/8MWp
