@@ -31,7 +31,6 @@
 ### Karnaugh maps for all three functions:
 ![Karnaugh maps](Images/KarnaughMaps.png)
 
-![f(B>A)](Images/BvacsieA.png)
 ![f(B=A)](Images/BrovnaA.png)
 ![f(B<A)](Images/BmensieA.png)
 
