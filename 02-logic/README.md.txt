@@ -29,10 +29,15 @@
 ## 2.A 2-bit comparator
 
 ### Karnaugh maps for all three functions:
-![Screenshot with simulated time waveforms](Images/KarnaughMaps.png)
+![Karnaugh maps](Images/KarnaughMaps.png)
+
+![f(B>A)](Images/BvacsieA.png)
+![f(B=A)](Images/BrovnaA.png)
+![f(B<A)](Images/BmensieA.png)
 
 ### Simplified SoP form of the function and simplified PoS form of the function:
-
+![SoP function](Images/SoP.png)
+![PoS function](Images/PoS.png)
 
 ## 3.A 4-bit binary comparator
 
