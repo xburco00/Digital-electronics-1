@@ -4,7 +4,7 @@
 
 ## 1.Preparation tasks
 
-###16 slide switches and 16 LEDs Nexys A7 board:
+### 16 slide switches and 16 LEDs Nexys A7 board:
 
 |  LED  | Connection | Switch | Connection | 
 |  :-:  |     :-:    |   :-:  |     :-:    |
@@ -30,7 +30,7 @@
 
 ## 2.Two-bit wide 4-to-1 multiplexer
 
-###VHDL architecture:
+### VHDL architecture:
 ```vhdl
 library ieee;
 use ieee.std_logic_1164.all;
@@ -58,7 +58,7 @@ begin
 end architecture Behavioral;
 ```
 
-###VHDL stimulus process:
+### VHDL stimulus process:
 ```vhdl
 library ieee;
 use ieee.std_logic_1164.all;
@@ -120,8 +120,8 @@ begin
 end architecture testbench;
 ```
 
-###Screenshot with simulated time waveforms:
+### Screenshot with simulated time waveforms:
 
 ![Graph](Images/graf.png)
 
-##A Vivado tutorial
+## A Vivado tutorial
