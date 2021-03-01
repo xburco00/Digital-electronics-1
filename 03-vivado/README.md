@@ -148,7 +148,7 @@ end architecture testbench;
 4) Klikneme na "Create simulation sources" a následne na "Create File"
 5) File type si zvolíme "VHDL" a napíšeme názov ktorý bude začínať "tb_" 
 6) Klikneme na "OK" a na "Finish"
-7) Klikneme "OK" a "Yes"
+7) Klikneme na "OK" a "Yes"
 
 ### Running simulation
 1) Pod "Simulation" klikneme na "Run Simulation" a na "Run Behavioral Simulation"
