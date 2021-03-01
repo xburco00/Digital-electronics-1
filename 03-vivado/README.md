@@ -125,3 +125,31 @@ end architecture testbench;
 ![Graph](Images/graf.png)
 
 ## A Vivado tutorial
+
+### Create project:
+a) Otvoríme aplikáciu Vivado 2020.2
+b) Create Project
+c) Klikneme na "Next >"
+d) Napíšeme názov projektu, vyberieme si miesto uloženia a klikneme na "Next>"
+e) Necháme zakliknute _RTL Project a klikneme na "Next >"
+
+### Adding Source:
+a) Klikneme na "Create File", file type nastavíme na "VHDL" a napíšeme názov
+b) Klikneme na "OK" a "Next >"
+c) Ďalej klikneme na "Next >"
+d) Klikneme na "Boards" a vyberieme si dosku, napr. "Nexys A7-50T"
+e) Klikneme na "Next >" a následne na "Finish"
+f( Klikneme na "OK" a "Yes"
+
+### Adding testbench
+a) Otvoríme si zložku "Simulation Sources"
+b) Kliknutím na zložku "sim_1" a na "Add Sources..."
+c) Klikneme na "Next >"
+d) Klikneme na "Create simulation sources" a následne na "Create File"
+e) File type si zvolíme "VHDL" a napíšeme názov ktorý bude začínať "tb_" 
+f) Klikneme na "OK" a na "Finish"
+g) Klikneme "OK" a "Yes"
+
+### Running simulation
+a) Pod "Simulation" klikneme na "Run Simulation" a na "Run Behavioral Simulation"
+b) Po chvíli sa nám v novom okne otvoria naše grafy
