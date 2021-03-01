@@ -127,29 +127,29 @@ end architecture testbench;
 ## A Vivado tutorial
 
 ### Create project:
-a) Otvoríme aplikáciu Vivado 2020.2
-b) Create Project
-c) Klikneme na "Next >"
-d) Napíšeme názov projektu, vyberieme si miesto uloženia a klikneme na "Next>"
-e) Necháme zakliknute _RTL Project a klikneme na "Next >"
+1) Otvoríme aplikáciu Vivado 2020.2
+2) Create Project
+3) Klikneme na "Next >"
+4) Napíšeme názov projektu, vyberieme si miesto uloženia a klikneme na "Next>"
+5) Necháme zakliknute _RTL Project a klikneme na "Next >"
 
 ### Adding Source:
-a) Klikneme na "Create File", file type nastavíme na "VHDL" a napíšeme názov
-b) Klikneme na "OK" a "Next >"
-c) Ďalej klikneme na "Next >"
-d) Klikneme na "Boards" a vyberieme si dosku, napr. "Nexys A7-50T"
-e) Klikneme na "Next >" a následne na "Finish"
-f( Klikneme na "OK" a "Yes"
+1) Klikneme na "Create File", file type nastavíme na "VHDL" a napíšeme názov
+2) Klikneme na "OK" a "Next >"
+3) Ďalej klikneme na "Next >"
+4) Klikneme na "Boards" a vyberieme si dosku, napr. "Nexys A7-50T"
+5) Klikneme na "Next >" a následne na "Finish"
+6) Klikneme na "OK" a "Yes"
 
 ### Adding testbench
-a) Otvoríme si zložku "Simulation Sources"
-b) Kliknutím na zložku "sim_1" a na "Add Sources..."
-c) Klikneme na "Next >"
-d) Klikneme na "Create simulation sources" a následne na "Create File"
-e) File type si zvolíme "VHDL" a napíšeme názov ktorý bude začínať "tb_" 
-f) Klikneme na "OK" a na "Finish"
-g) Klikneme "OK" a "Yes"
+1) Otvoríme si zložku "Simulation Sources"
+2) Kliknutím na zložku "sim_1" a na "Add Sources..."
+3) Klikneme na "Next >"
+4) Klikneme na "Create simulation sources" a následne na "Create File"
+5) File type si zvolíme "VHDL" a napíšeme názov ktorý bude začínať "tb_" 
+6) Klikneme na "OK" a na "Finish"
+7) Klikneme "OK" a "Yes"
 
 ### Running simulation
-a) Pod "Simulation" klikneme na "Run Simulation" a na "Run Behavioral Simulation"
-b) Po chvíli sa nám v novom okne otvoria naše grafy
+1) Pod "Simulation" klikneme na "Run Simulation" a na "Run Behavioral Simulation"
+2) Po chvíli sa nám v novom okne otvoria naše grafy
