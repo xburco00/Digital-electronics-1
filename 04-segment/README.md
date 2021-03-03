@@ -33,7 +33,7 @@
 
 ## 2.Seven-segment display decoder
 
-### VHDL architecture from source ```vhdl file hex_7seg.vhd```:
+### VHDL architecture from source ```vhdlfile hex_7seg.vhd```:
 ```vhdl
 architecture Behavioral of hex_7seg is
 
@@ -82,7 +82,7 @@ begin
 end Behavioral;
 ```
 
-### VHDL stimulus process from testbench file ```vhdl tb_hex_7seg.vhd```:
+### VHDL stimulus process from testbench file ```vhdltb_hex_7seg.vhd```:
 ```vhdl
 p_stimulus : process
             begin 
@@ -131,7 +131,7 @@ p_stimulus : process
 
 ![Simulated time waveforms](Images/picture3.png)
 
-### VHDL code from source file ```vhdl top.vhd```:
+### VHDL code from source file ```vhdltop.vhd```:
 ```vhdl
  hex2seg : entity work.hex_7seg
         port map(
