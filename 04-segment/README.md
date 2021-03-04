@@ -147,7 +147,7 @@ p_stimulus : process
         );
 ```
 
-## LED(7:4) indicators
+## 3.LED(7:4) indicators
 
 ### Truth table and VHDL code for LEDs(7:4):
 
