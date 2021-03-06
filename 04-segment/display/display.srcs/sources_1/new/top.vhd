@@ -53,7 +53,7 @@ architecture Behavioral of top is
 begin
 
  --------------------------------------------------------------------
-    -- Instance (copy) of hex_7seg entity
+    -- Instance (copy) of to entity
     hex2seg : entity work.hex_7seg
         port map(
             hex_i      => SW,
