@@ -166,4 +166,4 @@ begin
 
 ### Image of the top layer including both counters, ie a 4-bit bidirectional counter from Part 4 and a 16-bit counter with a different time base:
 
-![Simulated time waveforms](Images/picture3.png)
+![Image of the top layer including both counters](Images/picture3.png)
