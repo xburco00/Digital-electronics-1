@@ -152,7 +152,7 @@ begin
 end architecture testbench;
 ```
 
-### Screenshot with simulated time waveforms:
+### Screenshots with simulated time waveforms:
 
 ![Simulated time Waveforms](Images/image1.png)
 
