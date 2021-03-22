@@ -54,7 +54,7 @@ begin
     -- every 4 ms
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX  => 4 
+            g_MAX  => 4
                    )
         port map(
             clk    =>  clk,
@@ -117,6 +117,5 @@ begin
                 
         end case;
     end process p_mux;
-
-end architecture Behavioral;
-
+    
+    end architecture Behavioral;

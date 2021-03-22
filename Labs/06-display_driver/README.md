@@ -154,9 +154,8 @@ end architecture testbench;
 
 ### Screenshots with simulated time waveforms:
 
-![Simulated time Waveforms](Images/obrazok1.png)
+![Simulated time Waveforms](Images/image1.png)
 
-![Simulated time Waveforms](Images/obrazok2.png)
 
 ### Listing of VHDL architecture of the top layer:
 ```vhdl
