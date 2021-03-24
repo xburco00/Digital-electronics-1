@@ -30,6 +30,12 @@
    | 1 | 0 | 1 | Invert(Toggle) |
    | 1 | 1 | 0 | Invert(Toggle) |
 
+\begin{align} 
+    q{n+1}^{D} = &~ d &\
+    q{n+1}^{JK} =&~ j\overline{q}{n}\ +\overline{k},q{n} &\
+    q{n+1}^{T} = &~ t\overline{q}{n}\ +\overline{t},q_{n} 
+\end{align}
+
 
 ## 2.D latch
 
@@ -43,7 +49,7 @@
 
 ```
 
-### Screenshot with simulated time waveforms; always display all inputs and outputs. The full functionality of the entity must be verified:
+### Screenshot with simulated time waveforms; always display all inputs and outputs:
 
 ![Simulated time Waveforms](Images/.png)
 
@@ -60,12 +66,10 @@
 
 ```
 
-### Screenshot, with simulated time waveforms; always display all inputs and outputs. The full functionality of the entities must be verified:
-
+### Screenshot, with simulated time waveforms; always display all inputs and outputs:
 ![Simulated time Waveforms](Images/.png)
 
 ## 4.Shift register
 
-### Image of the shift register schematic. The image can be drawn on a computer or by hand. Name all inputs, outputs, components and internal signals:
-
+### Image of the shift register schematic
 ![Image of the shift](Images/.png)

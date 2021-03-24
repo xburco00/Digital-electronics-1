@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 24.03.2021 14:34:35
+-- Create Date: 24.03.2021 15:49:15
 -- Design Name: 
--- Module Name: d_latch - Behavioral
+-- Module Name: tb_d_ff_arst - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,34 +31,28 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity d_latch is
-Port (
-    en    : in STD_LOGIC;
-    arst  : in STD_LOGIC;
-    d     : in STD_LOGIC;
-    q     : out STD_LOGIC;
-    q_bar : out STD_LOGIC
-    );
+entity tb_d_ff_arst is
+--  Port ( );
+end tb_d_ff_arst;
 
-end d_latch;
+architecture Behavioral of tb_d_ff_arst is
 
-architecture Behavioral of d_latch is
+    constant c_CLK_100MHZ_PEROID : time  := 10 ns;
+
+    signal s_en    :  std_logic; 
+    signal s_arst  :  std_logic; 
+    signal s_d     :  std_logic; 
+    signal s_q     :  std_logic;
+    signal s_q_bar :  std_logic;
 
 begin
-    
-    p_d_latch : process (d, arst, en)
+    uut_d_ff_arst: entity work.d_ff_arst
+    port map(
+        clk   => s_en,
+        arst  => s_arst,
+        d     => s_d,
+        q     => s_q,
+        q_bar => s_q_bar
+        );
 
-    begin
-        if (arst = '1' ) then
-            q      <= '0';
-            q_bar  <= '1';
-
-        elsif (en = '1') then
-            q       <= d;
-            q_bar    <= not d;
-
-        end if ;
-
-    end process p_d_latch;
-    
 end Behavioral;
