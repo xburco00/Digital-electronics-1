@@ -45,7 +45,6 @@ architecture Behavioral of d_ff_arst is
 
 begin
     p_d_latch : process (clk, arst)
-
     begin
         if (arst = '1' ) then
             q        <= '0';
@@ -56,7 +55,6 @@ begin
             q_bar    <= not d;
 
         end if ;
-
     end process p_d_latch;
 
 end Behavioral;

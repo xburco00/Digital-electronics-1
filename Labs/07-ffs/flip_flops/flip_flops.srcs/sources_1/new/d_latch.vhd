@@ -47,18 +47,16 @@ architecture Behavioral of d_latch is
 begin
     
     p_d_latch : process (d, arst, en)
+        begin
+            if (arst = '1' ) then
+                q      <= '0';
+                q_bar  <= '1';
 
-    begin
-        if (arst = '1' ) then
-            q      <= '0';
-            q_bar  <= '1';
-
-        elsif (en = '1') then
-            q       <= d;
-            q_bar    <= not d;
-
-        end if ;
-
-    end process p_d_latch;
+            elsif (en = '1') then
+                q       <= d;
+                q_bar    <= not d;
+            
+            end if ;
+        end process p_d_latch;
     
 end Behavioral;

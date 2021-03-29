@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity t_ff_rst is
   Port (
         clk   : in STD_LOGIC;
-        rst  : in STD_LOGIC;
+        rst   : in STD_LOGIC;
         t     : in STD_LOGIC;
         q     : out STD_LOGIC;
         q_bar : out STD_LOGIC 
@@ -42,21 +42,25 @@ entity t_ff_rst is
 end t_ff_rst;
 
 architecture Behavioral of t_ff_rst is
+    signal s_q : std_logic;
 
 begin
-    p_d_latch : process (clk, rst)
+    
+    t_ff_rst : process (clk, rst)
+        begin
+            if rising_edge(clk) then
+                if (rst = '1') then
+                    s_q <= '0';
 
-    begin
-        if (rst = '1' ) then
-            q        <= '0';
-            q_bar    <= '1';
+                elsif (t = '1') then
+                    s_q <= not s_q;
+       
+                end if;
+           
+            end if ;
+        end process t_ff_rst;
 
-        elsif rising_edge(clk) then
-            q        <= t;
-            q_bar    <= not t;
-
-        end if ;
-
-    end process p_d_latch;
+    q      <= s_q;
+    q_bar  <= not s_q;
 
 end Behavioral;
