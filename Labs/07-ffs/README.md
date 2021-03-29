@@ -174,7 +174,7 @@ p_reset_gen : process
 ## 3.Flip-flops
 
 ### VHDL code listing of the processes ```p_d_ff_arst```, ```p_d_ff_rst```, ```p_jk_ff_rst```, ```p_t_ff_rst``` with syntax highlighting:
-###```p_d_ff_arst```
+```p_d_ff_arst```
 ```vhdl
 p_d_latch : process (clk, arst)
     begin
@@ -190,7 +190,7 @@ p_d_latch : process (clk, arst)
     end process p_d_latch;
 ```
 
-###```p_d_ff_rst```
+```p_d_ff_rst```
 ```vhdl
 p_d_ff_rst : process (clk)
     begin
@@ -206,7 +206,7 @@ p_d_ff_rst : process (clk)
     end process p_d_ff_rst;
 ```
 
-###```p_jk_ff_rst```
+```p_jk_ff_rst```
 ```vhdl
 p_jk_ff_rst : process (clk)
         begin
@@ -234,7 +234,7 @@ p_jk_ff_rst : process (clk)
     q_bar  <= not s_q;
 ```
 
-###```p_t_ff_rst```
+```p_t_ff_rst```
 ```vhdl
 t_ff_rst : process (clk, rst)
         begin
@@ -255,7 +255,7 @@ t_ff_rst : process (clk, rst)
 ```
 
 ### Listing of VHDL clock, reset and stimulus processes from the testbench files with syntax highlighting and asserts:
-###```tb_d_ff_arst```
+```tb_d_ff_arst```
 ```vhdl
  begin
             s_arst <= '0';
@@ -333,7 +333,7 @@ t_ff_rst : process (clk, rst)
     end process p_stimulus;
 ```
 
-###```tb_d_ff_rst```
+```tb_d_ff_rst```
 ```vhdl
 p_reset_gen : process
         begin
@@ -419,7 +419,7 @@ p_reset_gen : process
     end process p_stimulus;
 ```
 
-###```tb_jk_ff_rst```
+```tb_jk_ff_rst```
 ```vhdl
 p_reset_gen : process
         begin
@@ -501,7 +501,7 @@ p_reset_gen : process
     end process p_stimulus;
 ```
 
-###```tb_t_ff_rst```
+```tb_t_ff_rst```
 ```vhdl
 p_reset_gen : process
         begin
@@ -576,16 +576,16 @@ p_reset_gen : process
 ```
 
 ### Screenshot, with simulated time waveforms; always display all inputs and outputs:
-###```d_ff_arst```
+```d_ff_arst```
 ![Simulated time Waveforms](Images/picture1.png)
 
-###```d_ff_rst```
+```d_ff_rst```
 ![Simulated time Waveforms](Images/picture2.png)
 
-###```jk_ff_rst```
+```jk_ff_rst```
 ![Simulated time Waveforms](Images/picture3.png)
 
-###```t_ff_rst```
+```t_ff_rst```
 ![Simulated time Waveforms](Images/picture4.png)
 
 
