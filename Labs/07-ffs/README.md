@@ -34,7 +34,7 @@
 
 ## 2.D latch
 
-### VHDL code listing of the process ```p_d_latch``` with syntax highlighting:
+### VHDL code listing of the process ```p_d_latch```:
 ```vhdl
 p_d_latch : process (d, arst, en)
     begin
@@ -50,7 +50,7 @@ p_d_latch : process (d, arst, en)
     end process p_d_latch;
 ```
 
-### Listing of VHDL reset and stimulus processes from the testbench ```tb_d_latch``` file with syntax highlighting and asserts:
+### Listing of VHDL reset and stimulus processes from the testbench ```tb_d_latch``` file:
 ```vhdl
 p_reset_gen : process
      begin
@@ -166,14 +166,14 @@ p_reset_gen : process
     end process p_stimulus;
 ```
 
-### Screenshot with simulated time waveforms; always display all inputs and outputs:
+### Screenshot with simulated time waveforms:
 
 ![Simulated time Waveforms](Images/picture6.png)
 
 
 ## 3.Flip-flops
 
-### VHDL code listing of the processes ```p_d_ff_arst```, ```p_d_ff_rst```, ```p_jk_ff_rst```, ```p_t_ff_rst``` with syntax highlighting:
+### VHDL code listing of the processes ```p_d_ff_arst```, ```p_d_ff_rst```, ```p_jk_ff_rst```, ```p_t_ff_rst```:
 ```p_d_ff_arst```
 ```vhdl
 p_d_latch : process (clk, arst)
@@ -254,7 +254,7 @@ t_ff_rst : process (clk, rst)
     q_bar  <= not s_q;
 ```
 
-### Listing of VHDL clock, reset and stimulus processes from the testbench files with syntax highlighting and asserts:
+### Listing of VHDL clock, reset and stimulus processes from the testbench files:
 ```tb_d_ff_arst```
 ```vhdl
  begin
@@ -575,7 +575,7 @@ p_reset_gen : process
     end process p_stimulus;
 ```
 
-### Screenshot, with simulated time waveforms; always display all inputs and outputs:
+### Screenshot, with simulated time waveforms:
 ```d_ff_arst```
 ![Simulated time Waveforms](Images/picture1.png)
 
