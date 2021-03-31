@@ -24,7 +24,7 @@
 ## 2.Traffic light controller
 
 ### State diagram:
-
+![Simulated time Waveforms](Images/picture4.png)
 
 ### Listing of VHDL code of sequential process ```p_traffic_fsm```:
 ```vhdl
