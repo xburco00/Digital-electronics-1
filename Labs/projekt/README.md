@@ -27,9 +27,9 @@
 
 ### Datasheets of used components
 
-####[HC-SR04 datasheet](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)
-####[LED baragraph](https://docs.broadcom.com/doc/5965-6545E)
-####[Resisitor datasheet](https://docs-emea.rs-online.com/webdocs/0e29/0900766b80e29d33.pdf)
+- [HC-SR04 datasheet](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)
+- [LED baragraph](https://docs.broadcom.com/doc/5965-6545E)
+- [Resisitor datasheet](https://docs-emea.rs-online.com/webdocs/0e29/0900766b80e29d33.pdf)
 
 ### Board **Arty A7-35T**
 
