@@ -20,10 +20,10 @@
  - Arty A7-35T
  - HC-SR04 ultrasonic sensor
  - LED bargraph
- - Resistor 220Ω
+ - 5x Resistor 220Ω
  - Resistor 1000Ω
  - Resistor 2000Ω
- - Transistor NPN
+ - 6x Transistor NPN
  - Voltage Source +5V
 
 ### Datasheets of used components
