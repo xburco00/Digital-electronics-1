@@ -23,6 +23,7 @@
  - Resistor 220Ω
  - Resistor 1000Ω
  - Resistor 2000Ω
+ - Transistor NPN
  - Voltage Source +5V
 
 ### Datasheets of used components
@@ -30,6 +31,7 @@
 - [HC-SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)
 - [LED baragraph](https://docs.broadcom.com/doc/5965-6545E)
 - [Resisitor](https://docs-emea.rs-online.com/webdocs/0e29/0900766b80e29d33.pdf)
+- [Transistor NPN](https://www.onsemi.com/pdf/datasheet/2n3903-d.pdf)
 
 ### Board **Arty A7-35T**
 
