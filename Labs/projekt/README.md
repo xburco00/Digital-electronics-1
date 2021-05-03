@@ -94,7 +94,7 @@
 | VCC | PIN6 - VCC |
 
 ## VHDL modules description and simulations
-Some description
+#### Some description
 
 ###
 
@@ -127,7 +127,7 @@ Some description
 | 100 < | 00000 |
 
 ## TOP module description and simulations
-Some descrition
+#### Some descrition
 
 ### Schematic of TOP
 ![Top](Images/Top.png)
