@@ -5,8 +5,8 @@
 * Maroš Bilek
 * Radek Burian
 * Matúš Burčo
-* Adrián Bujna
 * Bohumír Brhel
+* Adrián Bujna
 
 [GitHub project folder](to-do)
 
@@ -20,6 +20,7 @@
  - Arty A7-35T
  - HC-SR04 ultrasonic sensor
  - LED bargraph
+ - Buzzer
  - 5x Resistor 220Ω
  - Resistor 1000Ω
  - Resistor 2000Ω
@@ -30,6 +31,7 @@
 
 - [HC-SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)
 - [LED baragraph](https://docs.broadcom.com/doc/5965-6545E)
+- [Buzzer](http://www.electronicoscaldas.com/datasheet/LTE12-Series.pdf)
 - [Resisitor](https://docs-emea.rs-online.com/webdocs/0e29/0900766b80e29d33.pdf)
 - [Transistor NPN](https://www.onsemi.com/pdf/datasheet/2n3903-d.pdf)
 
@@ -91,14 +93,56 @@
 | GND | PIN5 - GND |
 | VCC | PIN6 - VCC |
 
-#### State Diagram
+## VHDL modules description and simulations
+Some description
 
+###
+
+### ```state_machine```
+
+#### State Diagram
 ![StateDiagram](Images/StateDiagram.png)
 
-## VHDL modules description and simulations
+#### Design module code
+```vhdl
+
+```
+
+#### Testbench code
+```vhdl
+
+```
+
+###
+
+
+#### Table of LED light diodes
+|  Rozsah[Cm]  |  LED  |
+| :-: | :-: |
+| 0 - 20 | 11111 | 
+| 20 - 40 | 11110 |
+| 40 - 60 | 11100 | 
+| 60 - 80 | 11000 |
+| 80 - 100 | 10000 |
+| 100 < | 00000 |
 
 ## TOP module description and simulations
+Some descrition
+
+### Schematic of TOP
+![Top](Images/Top.png)
+
+### Design module code
+```vhdl
+
+```
+
+### Testbench code
+```vhdl
+
+```
 
 ## Video
+
 
 ## References
