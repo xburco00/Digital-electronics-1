@@ -14,6 +14,8 @@
 
 [GitHub project folder](to-do)
 
+
+
 ## Hardware description
 
 ### Choosen Components
@@ -41,7 +43,7 @@
 
 ![Board](Images/BasicIO.png)
 
-### Schematics
+### Schematics of components connected on board Pins
 
 #### HC-SR04
 ![Schematic](Images/HC-SR04.png)
@@ -52,7 +54,7 @@
 #### LED baragraph
 ![Schematic](Images/LED_bargraph.png)
 
-### Pmod Connectors
+### Pmod connectors tables
 
 ![Pins](Images/piny.png)
 
