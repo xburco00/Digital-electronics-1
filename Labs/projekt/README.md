@@ -8,11 +8,11 @@
 * Bohumír Brhel
 * Adrián Bujna
 
-[GitHub project folder](to-do)
-
 ## Project objectives
 
 #### Project goal is to implement parking assistant with HC-SR04 ultrasonic sensor and LED bargraph onto board Arty A7-35T. Pulse width modulation(PWM) and LED baragraph is used for sound signaling.
+
+[GitHub project folder](to-do)
 
 ## Hardware description
 
