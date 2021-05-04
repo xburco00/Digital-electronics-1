@@ -6,7 +6,7 @@
 - [Radek Burian](https://github.com/Xxburia27/Digital-electronics-1)
 - [Matúš Burčo](https://github.com/xburco00/Digital-electronics-1)
 - [Bohumír Brhel]
-- [Adrián Bujna]
+- Adrián Bujna
 
 ## Project objectives
 
