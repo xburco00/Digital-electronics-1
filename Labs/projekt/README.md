@@ -71,16 +71,17 @@
 | Pin 10 | K16 | J15 | U13 | G2 |
 
 #### Sensor HC-SR04 connection table
-| **Sensor HC - SR04** | **Board - JA_pmod** |
+| **Sensor HC - SR04** | **Board - pmod** |
 | :-: | :-: | 
 | Trig | PIN1 - G13 |
-| Echo | PIN7 - D13 |
+| Echo | PIN1 - U12 |
 | VCC | PIN6 -  VCC |
 | GND | PIN5 - GND |
 
 #### Buzzer connection table
-| **Buzzer** | **Board - JA_pmod** |
-| :-: | :-: | 
+| **Buzzer** | **Board - pmod** |
+| :-: | :-: |
+|Sound| PIN2 - B11 | 
 | VCC | PIN12 - VCC |
 | GND | PIN11 - GND |
 
@@ -387,7 +388,7 @@ end Behavioral;
 This module is...
 
 #### Table of LED light diodes
-|  Rozsah[Cm]  |  LED  |
+|  Range[Cm]  |  LED  |
 | :-: | :-: |
 | 0 - 20 | 11111 | 
 | 20 - 40 | 11110 |
