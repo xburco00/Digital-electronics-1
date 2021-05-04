@@ -101,7 +101,7 @@
 ## VHDL modules description and simulations
 
 ### ```clock_enable.vhd``` modules
-#### This module is...
+#### Modul clock_enable slúži na generovanie hodinového signálu. Modul clk_4khz je prerobený modul clock_enable aby generoval 4kHz. Aby sme g_MAX mohli meniť veľkosť, tak sme ju využili v port namiesto generic, ako to je v clock_enable.
 
 #### Design module code for ```clock_enable.vhd```
 ```vhdl
@@ -216,7 +216,7 @@ end architecture behavioral;
 
 
 ### ```pwm.vhd```
-#### This module is...
+#### Modul pwm využíva zjednodušenú Impulzovú šírkovú moduláciu(PWM). Pomocou 4kHz sa generuje zvuk. Signál s_en funguje na princípe flip_flop pre výstupný signál sound ktorý mení dĺžku pípania pomocou g_MAX_lenght a počtu s_echou_count.
 
 #### Design module code
 ```vhdl
@@ -385,7 +385,7 @@ end Behavioral;
 
 
 ### ```LED_baragraph.vhd```
-This module is...
+#### V module LED_baragraph sa využíva s_echo_count_o z modulu state_machine  a prevádza sa na echo_count_i . Následne sa echo_count_i využíva ako rozmedzie pre použité LED diody, ktoré sú používané na baragrafe.  Pomocou vzorca prevádzame čas, ktorý sa odrazí od steny na vzdialenosť. Rozmedzie v čase je uvedené v procese p_decide. Použitý vzorec: D = (tt/2 * Cv) ... D - distance; tt - time travel; Cv - rýchlosť zvuku (0,0343m*s-1)
 
 #### Table of LED light diodes
 |  Range[Cm]  |  LED  |
@@ -531,7 +531,7 @@ end Behavioral;
 
 
 ### ```state_machine.vhd```
-#### This module is main function module implementing state machine...
+#### Modul state_machine je založený na stavovom diagrame. V tomto module určujeme štyri základné stavy (DEFAULT, trig_send, trig_wait, echo_counter). Prvý stav je výstupný, kedy nie je aktívna spiatočka(reverse). Pri zaradení spiatočky sa prepne do stavu trig_send a vyšle trigger. Po vyslaní trigerru sa dostaneme do stavu trig_wait, v ktorom čakáme na echo. V prípade obdržania echa sa dostaneme do echo_counter a začne sa čítať čas. Následne sa smeruje do stavu trig_send. V každom stave je braná možnosť spiatočky.
 
 #### State Diagram
 ![StateDiagram](Images/StateDiagram.png)
@@ -762,7 +762,7 @@ end Behavioral;
 
 
 ## TOP module description and simulations
-#### This module is used to implement all modules onto Arty A7-35T board...
+#### Modul TOP je využitý na implementáciu všetkých modulov na dosku Arty A7-35T. Pomocou constraints sme priradili vstupy a výstupy z vytvorených modulov priradili k PINom dosky.
 
 ### Schematic of TOP
 ![Top](Images/Top.png)
