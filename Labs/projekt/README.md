@@ -383,26 +383,6 @@ end Behavioral;
 ![Simulation](Images/pwm.png)
 
 
-### ```state_machine.vhd```
-#### This module is main function module implementing state machine...
-
-#### State Diagram
-![StateDiagram](Images/StateDiagram.png)
-
-#### Design module code
-```vhdl
-
-```
-
-#### Testbench code
-```vhdl
-
-```
-
-#### Screenshot with simulated time waveforms
-![Simulation](Images/state_machine.png)
-
-
 ### ```LED_baragraph.vhd```
 This module is...
 
@@ -547,6 +527,26 @@ end Behavioral;
 
 #### Screenshot with simulated time waveforms
 ![Simulation](Images/LED_baragraph.png)
+
+
+### ```state_machine.vhd```
+#### This module is main function module implementing state machine...
+
+#### State Diagram
+![StateDiagram](Images/StateDiagram.png)
+
+#### Design module code
+```vhdl
+
+```
+
+#### Testbench code
+```vhdl
+
+```
+
+#### Screenshot with simulated time waveforms
+![Simulation](Images/state_machine.png)
 
 
 
