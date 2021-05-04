@@ -99,52 +99,288 @@
 
 ## VHDL modules description and simulations
 
+### ```clock_enable.vhd``` modules
+This module is...
+
+#### Design module code for ```clock_enable.vhd```
+```vhdl
+library ieee;               
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;   
+
+
+entity clock_enable is
+    generic(
+       g_MAX : natural       -- Number of clk pulses to generate
+                                   -- one enable signal period
+            );  -- Note that there IS a semicolon between generic and port
+                -- sections
+    port(        
+        clk   : in  std_logic;      -- Main clock
+        reset : in  std_logic;      -- Synchronous reset
+        ce_o  : out std_logic       -- Clock enable pulse signal
+        );
+
+end entity clock_enable;
+
+------------------------------------------------------------------------
+-- Architecture body for clock enable
+------------------------------------------------------------------------
+architecture behavioral of clock_enable is
+
+    -- Local counter
+    signal s_cnt_local : natural;
+
+begin
+    --------------------------------------------------------------------
+    -- p_clk_ena:
+    -- Generate clock enable signal. By default, enable signal is low 
+    -- and generated pulse is always one clock long.
+    --------------------------------------------------------------------
+    p_clk_ena : process(clk)
+    begin
+        if rising_edge(clk) then        -- Synchronous process
+
+            if (reset = '1') then       -- High active reset
+                s_cnt_local <= 0;       -- Clear local counter
+                ce_o        <= '0';     -- Set output to low
+
+            -- Test number of clock periods
+            elsif (s_cnt_local >= (g_MAX - 1)) then
+                s_cnt_local <= 0;       -- Clear local counter
+                ce_o        <= '1';     -- Generate clock enable pulse
+
+            else
+                s_cnt_local <= s_cnt_local + 1;
+                ce_o        <= '0';
+            end if;
+        end if;
+    end process p_clk_ena;
+
+end architecture behavioral;
+```
+
+#### Design module code for ```clk_4khz.vhd```
+```vhdl
+library ieee;               
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;   
+
+
+entity clk_enable_beep is
+    port(
+            g_MAX : in  unsigned(18-1 downto 0);
+            clk   : in  std_logic;      -- Main clock
+            reset : in  std_logic;      -- Synchronous reset
+            ce_o  : out std_logic       -- Clock enable pulse signal
+        );
+end entity clk_enable_beep;
+
+------------------------------------------------------------------------
+-- Architecture body for clock enable
+------------------------------------------------------------------------
+architecture behavioral of clk_enable_beep is
+
+    -- Local counter
+    signal s_cnt_local : natural;
+
+begin
+    --------------------------------------------------------------------
+    -- p_clk_ena:
+    -- Generate clock enable signal. By default, enable signal is low 
+    -- and generated pulse is always one clock long.
+    --------------------------------------------------------------------
+    p_clk_ena : process(clk)
+    begin
+        if rising_edge(clk) then        -- Synchronous process
+
+            if (reset = '1') then       -- High active reset
+                s_cnt_local <= 0;       -- Clear local counter
+                ce_o        <= '0';     -- Set output to low
+
+            -- Test number of clock periods
+            elsif (s_cnt_local >= (g_MAX - 1)) then 
+                s_cnt_local <= 0;       -- Clear local counter
+                ce_o        <= '1';     -- Generate clock enable pulse
+
+            else
+                s_cnt_local <= s_cnt_local + 1;
+                ce_o        <= '0';
+            end if;
+        end if;
+    end process p_clk_ena;
+
+end architecture behavioral;
+```
+
+
 ### ```pwm.vhd```
 This module is...
 
 #### Design module code
 ```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
+
+entity pwm is
+    Port (           
+            sound        : out STD_LOGIC;
+            clock        : in STD_LOGIC;
+            reset        : in std_logic;
+            echo_count_i : in unsigned(16 - 1 downto 0)
+         );
+end pwm;
+
+architecture Behavioral of pwm is
+    signal s_4khz       : std_logic;
+    signal s_en         : std_logic;
+    signal s_sound      : std_logic := '0';
+    signal g_MAX_length : unsigned(18-1 downto 0) := b"11_0110_1110_1110_1000"; -- 225 000
+begin
+
+    clk_en0 : entity work.clock_enable
+       generic map(g_MAX => 25000
+       )
+            port map
+            (
+                clk   => clock,
+                reset => reset,
+                ce_o  => s_4khz          
+            );
+            
+     clk_en1 : entity work.clk_enable_beep
+       
+            port map
+            (
+                clk   => clock,
+                reset => reset,
+                ce_o  => s_en,
+                g_MAX => g_MAX_length
+            );       
+            
+                       
+p_sound : process (clock)
+ begin
+    if rising_edge (clock) then
+        if(reset = '1') then
+            s_sound <= '0';
+        else
+            if(s_en = '1') then
+            s_sound <= not s_sound;
+            else
+                s_sound <=  s_sound;
+            end if;
+        end if;
+    end if;
+        end process p_sound;
+        
+p_decide : process(clock)
+begin
+    if(echo_count_i > 0 and echo_count_i < 1166) then
+        g_MAX_length <= b"01_1000_0110_1010_0000";      --100 000
+ 
+    elsif(echo_count_i > 1166 and echo_count_i < 2332)then
+        g_MAX_length <=b"01_1110_1000_0100_1000";       --125 000
+ 
+    elsif(echo_count_i > 2332 and echo_count_i < 3499) then
+        g_MAX_length <=b"10_0100_1001_1111_0000";       --150 000
+ 
+    elsif(echo_count_i > 3499 and echo_count_i < 4664)then
+        g_MAX_length <=b"10_1010_1011_1001_1000";       --175 000
+ 
+    elsif(echo_count_i > 4664 and echo_count_i < 5831)then
+        g_MAX_length <=b"11_0000_1101_0100_0000";       --200 000
+ 
+    else
+        g_MAX_length <=b"11_0110_1110_1110_1000";       --225 000
+    
+    end if;
+end process p_decide;       
+        sound <= s_sound and s_4khz;
+        
+end Behavioral;
 ```
 
 #### Testbench code
 ```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
+entity tb_pwm is
+
+end tb_pwm;
+
+architecture Behavioral of tb_pwm is
+
+    constant c_CLK_100MHZ_PERIOD : time := 10ns;
+    signal s_sound : std_logic;
+    signal s_clock : std_logic;
+    signal s_reset : std_logic;
+    signal s_echo_count_i : unsigned(16-1 downto 0);
+   
+
+begin
+
+uut : entity work.pwm
+
+port map(  
+           sound        => s_sound,
+           clock        => s_clock,
+           echo_count_i => s_echo_count_i,
+           reset        => s_reset
+        );
+
+p_clk_gen : process
+begin
+    while now < 100000 us loop
+        s_clock <= '0';
+        wait for c_CLK_100MHZ_PERIOD / 2;
+        s_clock <= '1';
+        wait for c_CLK_100MHZ_PERIOD / 2;
+    end loop;
+    wait;
+end process p_clk_gen;    
+                
+p_stimulus : process
+begin
+    s_reset <= '1';
+    wait for 300 us;
+    
+    s_reset<= '0';
+    wait for 4ms ;
+    
+    s_echo_count_i <= b"0000_0000_0011_0111";
+    wait for 5ms;
+
+    s_echo_count_i <= b"0000_0000_0000_1111";
+    wait for 5ms;
+
+    s_echo_count_i <= b"0000_0000_0101_0100";
+    wait for 5ms;
+    
+    s_echo_count_i <= b"0000_0000_0000_0110";
+    wait for 5ms;
+    
+    s_echo_count_i <= b"0000_0000_0011_0011";
+    wait for 5ms;
+
+    s_echo_count_i <= b"0000_0000_0000_1100";
+    wait for 5ms;
+
+    s_echo_count_i <= b"0000_0000_0111_0100";
+    
+    wait;
+    
+end process p_stimulus;
+
+end Behavioral;
 ```
 
 #### Screenshot with simulated time waveforms
 ![Simulation](Images/pwm.png)
-
-
-### ```clk.vhd```
-This module is...
-
-#### Design module code for ```clk100Mhz.vhd```
-```vhdl
-
-```
-
-#### Testbench code for ```clk100Mhz.vhd```
-```vhdl
-
-```
-
-#### Screenshot with simulated time waveforms for ```clk100Mhz.vhd```
-![Simulation](Images/clk100.png)
-
-
-#### Design module code for ```clk4khz.vhd```
-```vhdl
-
-```
-
-#### Testbench code for ```clk4khz.vhd```
-```vhdl
-
-```
-
-#### Screenshot with simulated time waveforms for ```clk4khz.vhd```
-![Simulation](Images/clk4.png)
 
 
 ### ```state_machine.vhd```
@@ -182,12 +418,131 @@ This module is...
 
 #### Design module code
 ```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.all;
 
+entity LED_bargraph is
+Port ( 
+        clk          : in  std_logic;
+        reset        : in  std_logic;
+        led_o        : out std_logic_vector(4 downto 0);
+        echo_count_i : in unsigned(16 - 1 downto 0)
+     );
+end LED_bargraph;
+
+architecture Behavioral of LED_bargraph is
+
+signal s_echo_count : unsigned(16-1 downto 0);
+signal s_en         : std_logic;
+
+begin
+
+clk_en0 : entity work.clock_enable
+        generic map(
+                      g_MAX =>  100      
+                   )
+        port map(
+                    clk   => clk,
+                    reset => reset,
+                    ce_o  => s_en
+                );
+
+p_decide : process(clk)
+begin
+
+    if(echo_count_i > 0 and echo_count_i < 1166) then 
+        led_o (4 downto 0 ) <= "11111";
+    elsif(echo_count_i > 1166 and echo_count_i < 2332)then 
+        led_o (4 downto 0 ) <= "11110"; 
+    elsif(echo_count_i > 2332 and echo_count_i < 3499) then
+        led_o (4 downto 0 ) <= "11100";
+    elsif(echo_count_i > 3499 and echo_count_i < 4664)then 
+        led_o (4 downto 0 ) <= "11000";
+    elsif(echo_count_i > 4664 and echo_count_i < 5831)then   
+        led_o (4 downto 0 ) <= "10000";
+    else   
+        led_o (4 downto 0 ) <= "00000";
+    end if;
+end process p_decide; 
+
+end Behavioral;
 ```
 
 #### Testbench code
 ```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity tb_LED_bargraph is
+
+end tb_LED_bargraph;
+
+architecture Behavioral of tb_LED_bargraph is
+   constant c_CLK_4kHZ_PERIOD : time := 10ns;
+   signal s_clk               : std_logic;
+   signal s_reset             : std_logic;
+   signal s_led_o             : std_logic_vector(4 downto 0);
+   signal s_echo_count_i      : unsigned(16 - 1 downto 0);
+
+begin
+
+uut_ledky : entity work.LED_bargraph
+    port map(
+                led_o           => s_led_o,
+                reset           => s_reset,
+                clk             => s_clk,
+                echo_count_i    => s_echo_count_i
+            );
+
+p_clk_gen : process
+    begin
+        while now < 200 ms loop   -- 10 usec of simulation
+            s_clk <= '0';
+            wait for c_CLK_4kHZ_PERIOD / 2;
+            s_clk <= '1';
+            wait for c_CLK_4kHZ_PERIOD / 2;
+        end loop;
+        wait;
+    end process p_clk_gen;
+
+p_led : process
+begin
+    s_echo_count_i <= b"0000_1011_1011_1000";--count = 3000
+    wait for 25us;                           -- led = (11100) - 3 LEDs are ON
+    assert (s_led_o = "11100") report "Error for count 3000" severity error;  
+     
+    s_echo_count_i <= b"0001_0011_1000_1000";--count = 5000
+    wait for 25us;                           -- led = (10000) - 1 LEDs are ON
+    assert (s_led_o = "10000") report "Error for count 5000" severity error;
+    
+    s_echo_count_i <= b"0000_0111_1101_0000";--count = 2000
+    wait for 25us;                           -- led = (11110) - 4 LEDs are ON
+    assert (s_led_o = "11110") report "Error for count 2000" severity error;
+    
+    s_echo_count_i <= b"0000_0000_0000_1111";-- count = 15
+    wait for 25us;                           -- led = (11111) - 5 LEDs are ON
+    assert (s_led_o = "11111") report "Error for count 15" severity error;
+    
+    s_echo_count_i <= b"0000_1111_1010_0000";-- count = 4000
+    wait for 25us;                           -- led = (11000) - 2 LEDs are ON
+    assert (s_led_o = "11000") report "Error for count 4000" severity error;
+    
+    s_echo_count_i <= b"0000_0000_0000_0000";-- count = 0
+    wait ;                                   -- led = (00000) - 0 LEDs are ON
+    assert (s_led_o = "00000") report "Error for count 0" severity error;
+    
+    end process p_led;
+end Behavioral;
 ```
 
 #### Screenshot with simulated time waveforms
@@ -203,12 +558,122 @@ This module is used to implement all modules onto Arty A7-35T board...
 
 ### Design module code
 ```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.all;
 
+
+entity top is
+  Port (
+           CLK100MHZ : in STD_LOGIC;                       --clock
+           sw   : in std_logic_vector(0 downto 0);         -- reset switch
+           --outputs
+           jd : out STD_LOGIC_VECTOR (4 downto 0);         --LEDs
+           ja : out std_logic_vector (1 downto 0);         -- ja(0) -> trigger_o;  ja(1) -> sound
+           --input (echo_i)
+           jc : in std_logic_vector(0 downto 0)     
+       );
+end top;
+
+architecture Behavioral of top is
+
+signal s_echo_count : unsigned(16 - 1 downto 0);
+
+begin
+
+    state_machine : entity work.state_machine
+        port map(
+                    clk     => CLK100MHZ,
+                    reset   => sw(0),
+                    echo_i  => jc,      
+                    echo_count_o => s_echo_count,
+                    trigger_o => ja(0)
+                );
+        
+    pwm : entity work.pwm
+        port map(
+                    sound  => ja(1),  
+                    clock  => CLK100MHZ,
+                    reset  => sw(0),  
+                    echo_count_i => s_echo_count
+                );
+    
+    LED_bargraph : entity work.LED_bargraph
+        port map(
+                    clk          => CLK100MHZ, 
+                    reset        => sw(0), 
+                    led_o        => jd(4 downto 0),
+                    echo_count_i => s_echo_count
+                );
+
+end Behavioral;
 ```
 
 ### Testbench code
 ```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+entity tb_top is
+
+end tb_top;
+
+architecture Behavioral of tb_top is
+constant         c_CLK_100MHZ_PERIOD : time := 10ns;
+signal           s_CLK100MHZ         :  STD_LOGIC;                      --clock
+signal           s_sw                :  std_logic_vector(0 downto 0);   -- reset switch
+           --outputs
+signal           s_jd                :  STD_LOGIC_VECTOR (4 downto 0);  --LEDs
+signal           s_ja                :  std_logic_vector (1 downto 0);  -- ja(0) -> trigger_o;  ja(1) -> sound
+           --input (echo_i)
+signal           s_jc                :  std_logic_vector(0 downto 0);
+
+
+begin
+
+    --------------------------------------------------------------------
+    -- Clock generation process
+    --------------------------------------------------------------------
+    p_clk_gen : process
+    begin
+        while now < 200 ms loop   -- 10 usec of simulation
+            s_CLK100MHz <= '0';
+            wait for c_CLK_100MHZ_PERIOD / 2;
+            s_CLK100MHz <= '1';
+            wait for c_CLK_100MHZ_PERIOD / 2;
+        end loop;
+        wait;
+    end process p_clk_gen;
+
+
+uut_top : entity work.top
+    port map(
+                CLK100MHZ =>s_CLK100MHZ,
+                sw(0)        => s_sw(0),
+                jd        =>s_jd,
+                ja        =>s_ja,
+                jc(0)       =>s_jc(0) 
+            );
+
+p_top : process
+begin
+
+ wait for 10 ms;
+ s_sw(0) <= '1';
+ wait for 2 ms;
+ s_sw(0) <= '0';
+ wait for 5 ms;
+ s_jc(0) <= '1';
+ wait for 5ms;
+ s_jc(0) <= '0';
+ wait for 4ms;
+ s_jc(0) <= '1';
+ wait for 2ms;
+ s_jc(0) <= '0';
+ wait;
+end process p_top;
+
+end Behavioral;
 ```
 
 #### Screenshot with simulated time waveforms
