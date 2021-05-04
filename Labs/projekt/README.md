@@ -888,7 +888,7 @@ end Behavioral;
 ```
 
 #### Screenshot with simulated time waveforms
-![Simulation](Images/top.png)
+![Simulation](Images/top_simulation.png)
 
 
 
