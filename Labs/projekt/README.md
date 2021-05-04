@@ -10,7 +10,7 @@
 
 ## Project objectives
 
-#### Project goal is to implement parking assistant with HC-SR04 ultrasonic sensor and LED bargraph onto board Arty A7-35T. Pulse width modulation(PWM) and LED baragraph is used for sound signaling.
+#### Project goal is to implement parking assistant with HC-SR04 ultrasonic sensor and LED bargraph onto board Arty A7-35T. Pulse width modulation(PWM) is used for sound signaling and LED baragraph for light signaling.
 
 [GitHub project folder](to-do)
 
