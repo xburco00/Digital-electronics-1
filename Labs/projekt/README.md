@@ -758,9 +758,7 @@ end Behavioral;
 ```
 
 #### Screenshots with simulated time waveforms
-![Simulation](Images/state_machine1.png)
-![Simulation](Images/state_machine2.png)
-![Simulation](Images/state_machine3.png)
+![Simulation](Images/state_machine.png)
 
 
 ## TOP module description and simulations
@@ -832,7 +830,7 @@ entity tb_top is
 end tb_top;
 
 architecture Behavioral of tb_top is
-constant         c_CLK_100MHZ_PERIOD : time := 10ns;
+constant         c_CLK_100MHZ_PERIOD :  time := 10ns;
 signal           s_CLK100MHZ         :  STD_LOGIC;                      --clock
 signal           s_sw                :  std_logic_vector(0 downto 0);   -- reset switch
            --outputs
