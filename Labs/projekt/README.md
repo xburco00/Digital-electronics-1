@@ -5,7 +5,7 @@
 - [Maroš Bilek](https://github.com/MarosBilek/Digital-electronics-1)
 - [Radek Burian](https://github.com/Xxburia27/Digital-electronics-1)
 - [Matúš Burčo](https://github.com/xburco00/Digital-electronics-1)
-- [Bohumír Brhel]
+- [Bohumír Brhel](https://github.com/bobyx01/Digital-electronics-1)
 - Adrián Bujna
 
 ## Project objectives
@@ -890,4 +890,4 @@ end Behavioral;
 
 
 ## Video
- [Video for the presentation of the project]()
+ [Video for the presentation of the project](https://www.youtube.com/watch?v=XtQOJvRulJU)
