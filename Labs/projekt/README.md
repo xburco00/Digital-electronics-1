@@ -100,7 +100,7 @@
 ## VHDL modules description and simulations
 
 ### ```clock_enable.vhd``` modules
-This module is...
+#### This module is...
 
 #### Design module code for ```clock_enable.vhd```
 ```vhdl
@@ -215,7 +215,7 @@ end architecture behavioral;
 
 
 ### ```pwm.vhd```
-This module is...
+#### This module is...
 
 #### Design module code
 ```vhdl
@@ -384,7 +384,7 @@ end Behavioral;
 
 
 ### ```state_machine.vhd```
-This module is main function module implementing state machine...
+#### This module is main function module implementing state machine...
 
 #### State Diagram
 ![StateDiagram](Images/StateDiagram.png)
@@ -551,7 +551,7 @@ end Behavioral;
 
 
 ## TOP module description and simulations
-This module is used to implement all modules onto Arty A7-35T board...
+#### This module is used to implement all modules onto Arty A7-35T board...
 
 ### Schematic of TOP
 ![Top](Images/Top.png)
