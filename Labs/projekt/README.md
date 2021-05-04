@@ -93,12 +93,60 @@
 | GND | PIN5 - GND |
 | VCC | PIN6 - VCC |
 
+
+
 ## VHDL modules description and simulations
-#### Some description
 
-###
+### ```pwm.vhd```
+This module is...
 
-### ```state_machine```
+#### Design module code
+```vhdl
+
+```
+
+#### Testbench code
+```vhdl
+
+```
+
+#### Screenshot with simulated time waveforms
+![Simulation](Images/pwm.png)
+
+
+### ```clk.vhd```
+This module is...
+
+#### Design module code for ```clk100Mhz.vhd```
+```vhdl
+
+```
+
+#### Testbench code for ```clk100Mhz.vhd```
+```vhdl
+
+```
+
+#### Screenshot with simulated time waveforms for ```clk100Mhz.vhd```
+![Simulation](Images/clk100.png)
+
+
+#### Design module code for ```clk4khz.vhd```
+```vhdl
+
+```
+
+#### Testbench code for ```clk4khz.vhd```
+```vhdl
+
+```
+
+#### Screenshot with simulated time waveforms for ```clk4khz.vhd```
+![Simulation](Images/clk4.png)
+
+
+### ```state_machine.vhd```
+This module is main function module implementing state machine...
 
 #### State Diagram
 ![StateDiagram](Images/StateDiagram.png)
@@ -113,8 +161,12 @@
 
 ```
 
-###
+#### Screenshot with simulated time waveforms
+![Simulation](Images/state_machine.png)
 
+
+### ```LED_baragraph.vhd```
+This module is...
 
 #### Table of LED light diodes
 |  Rozsah[Cm]  |  LED  |
@@ -126,8 +178,23 @@
 | 80 - 100 | 10000 |
 | 100 < | 00000 |
 
+#### Design module code
+```vhdl
+
+```
+
+#### Testbench code
+```vhdl
+
+```
+
+#### Screenshot with simulated time waveforms
+![Simulation](Images/LED_baragraph.png)
+
+
+
 ## TOP module description and simulations
-#### Some descrition
+This module is used to implement all modules onto Arty A7-35T board...
 
 ### Schematic of TOP
 ![Top](Images/Top.png)
@@ -142,7 +209,12 @@
 
 ```
 
-## Video
+#### Screenshot with simulated time waveforms
+![Simulation](Images/top.png)
 
+
+
+## Video
+- [Video for the presentation of the project]()
 
 ## References
