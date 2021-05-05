@@ -48,7 +48,7 @@
 #### Buzzer
 ![Schematic](Images/Buzzer.png)
 
-#### LED baragraph
+#### LED bargraph
 ![Schematic](Images/LED_bargraph.png)
 
 ### Pmod connectors tables
