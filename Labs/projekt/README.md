@@ -10,7 +10,7 @@
 
 ## Project objectives
 
-#### Project goal is to implement parking assistant with HC-SR04 ultrasonic sensor and LED bargraph onto board Arty A7-35T. Pulse width modulation(PWM) is used for sound signaling and LED baragraph for light signaling.
+#### Project goal is to implement parking assistant with HC-SR04 ultrasonic sensor and LED bargraph onto board Arty A7-35T. Pulse width modulation(PWM) is used for sound signaling and LED bargraph for light signaling.
 
 
 ## Hardware description
@@ -29,7 +29,7 @@
 ### Datasheets of used components
 
 - [HC-SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)
-- [LED baragraph](https://docs.broadcom.com/doc/5965-6545E)
+- [LED bargraph](https://docs.broadcom.com/doc/5965-6545E)
 - [Buzzer](http://www.electronicoscaldas.com/datasheet/LTE12-Series.pdf)
 - [Resisitor](https://docs-emea.rs-online.com/webdocs/0e29/0900766b80e29d33.pdf)
 - [Transistor NPN](https://www.onsemi.com/pdf/datasheet/2n3903-d.pdf)
@@ -381,7 +381,7 @@ end Behavioral;
 ![Simulation](Images/pwm.png)
 
 
-### ```LED_baragraph.vhd```
+### ```LED_bargraph.vhd```
 #### V module LED_baragraph sa využíva s_echo_count_o z modulu state_machine  a prevádza sa na echo_count_i . Následne sa echo_count_i využíva ako rozmedzie pre použité LED diody, ktoré sú používané na baragrafe.  Pomocou vzorca prevádzame čas, ktorý sa odrazí od steny na vzdialenosť. Rozmedzie v čase je uvedené v procese p_decide. Použitý vzorec: D = (tt/2 * Cv) ... D - distance; tt - time travel; Cv - rýchlosť zvuku (0,0343m*s-1)
 
 #### Table of LED light diodes
@@ -759,7 +759,7 @@ end Behavioral;
 
 
 ## TOP module description and simulations
-#### Modul TOP je využitý na implementáciu všetkých modulov na dosku Arty A7-35T. Pomocou constraints sme priradili vstupy a výstupy z vytvorených modulov priradili k PINom dosky.
+#### Modul TOP je využitý na implementáciu všetkých modulov na dosku Arty A7-35T. Pomocou constraints sme priradili vstupy a výstupy z vytvorených modulov k PINom dosky.
 
 ### Schematic of TOP
 ![Top](Images/Top.png)
